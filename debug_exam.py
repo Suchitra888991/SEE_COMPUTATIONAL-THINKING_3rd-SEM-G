@@ -10,7 +10,6 @@ in data1 and (k, v2) in data2 with a
 common key k. In this case, v1 and
 v2 may be the same, or v1 and v2 may
 be different.
-
 This function should modify only
 data1 and return a (possibly empty)
 dictionary as follows:
@@ -25,7 +24,6 @@ should be removed from data1 and the
 key-value pair (k, [v1, v2]) should
 be added to the (initially empty)
 dictionary to be returned.
-
 In this implementation, data1 is a
 dictionary and data2 is a list where
 each key-value pair in data2 is also
@@ -50,9 +48,9 @@ def uniqueUpdate(data1, data2):
                 dupKeys[k] = [v1, v2]
                 # Remove (k, v1) from data1
                 del data1[k]
-            else:
-                # Add (k, v2) to data1
-                data1[k] = v2
+        else:
+            data1[k] = v2
+            # Adding key value to data1 from data2 if its not present
     # After processing all (k, v2) in
     # data2, return the dictionary
     return dupKeys
@@ -66,7 +64,6 @@ https://tinyurl.com/...
 '''
 This part of the code reads input in
 the following format:
-
 Line 1: A positive integer n1
 representing the number of key value
 pairs in data1
@@ -81,11 +78,9 @@ Lines n1+3 to n1+n2+2: Two integers
 k and v per line representing the
 key and value (these n2 key value
 pairs are added to data2)
-
 This also prints the output in the
 following format after calling the
 uniqueUpdate function:
-
 data1
 data2 (should remain the same)
 dup (the dictionary returned)
